@@ -20,5 +20,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*.ts","src/**/*.js", "src/**/*.tsx" , "src/**/*.jsx"]
+  "include": ["src/**/*.ts","src/**/*.js", "src/**/*.tsx" , "src/**/*.jsx", "babel.config.js"]
 }
