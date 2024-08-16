@@ -1,4 +1,4 @@
-import { add } from "./utils";
+import { add } from './utils';
 
 describe('String Calculator', () => {
     test('should return 0 for an empty string', () => {
