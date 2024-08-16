@@ -2,12 +2,14 @@
 import React,{ useState } from 'react';
 import { Button, Input, Form, message } from 'antd';
 import { add } from './utils/utils';
+import './App.css';
 
 function App() {
 
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className='main-wrapper'>
+      Hello
     </div>
   );
 }
