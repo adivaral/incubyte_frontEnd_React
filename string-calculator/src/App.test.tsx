@@ -26,4 +26,21 @@ describe('App Component', () => {
     expect(screen.getByPlaceholderText(/enter numbers/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /calculate/i })).toBeInTheDocument();
   });
+
+  test('displays an error message when negative numbers are entered', async () => {
+    render(<App />);
+    fireEvent.change(screen.getByPlaceholderText(/enter numbers/i), { target: { value: '1,-4,3' } });
+    fireEvent.click(screen.getByRole('button', { name: /calculate/i }));
+
+    expect(await screen.findByText(/error: negative numbers not allowed/i)).toBeInTheDocument();
+  });
+
+  test('displays an error message for multiple negative numbers', async () => {
+    render(<App />);
+    fireEvent.change(screen.getByPlaceholderText(/enter numbers/i), { target: { value: '1,-2,-3' } });
+    fireEvent.click(screen.getByRole('button', { name: /calculate/i }));
+
+    expect(await screen.findByText(/error: negative numbers not allowed: -2,-3/i)).toBeInTheDocument();
+  });
+
 });
