@@ -27,6 +27,22 @@ describe('App Component', () => {
     expect(screen.getByRole('button', { name: /calculate/i })).toBeInTheDocument();
   });
 
+  test('handles new lines between numbers and calculates sum correctly', async () => {
+    render(<App />);
+    fireEvent.change(screen.getByPlaceholderText(/enter numbers/i), { target: { value: '1\n4,6' } });
+    fireEvent.click(screen.getByRole('button', { name: /calculate/i }));
+
+    expect(await screen.findByText(/sum is 11/i)).toBeInTheDocument();
+  });
+
+  test('handles different delimiters', async () => {
+    render(<App />);
+    fireEvent.change(screen.getByPlaceholderText(/enter numbers/i), { target: { value: '//;\n1;2' } });
+    fireEvent.click(screen.getByRole('button', { name: /calculate/i }));
+
+    expect(await screen.findByText(/sum is 3/i)).toBeInTheDocument();
+  });
+  
   test('displays an error message when negative numbers are entered', async () => {
     render(<App />);
     fireEvent.change(screen.getByPlaceholderText(/enter numbers/i), { target: { value: '1,-4,3' } });
