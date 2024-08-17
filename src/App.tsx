@@ -1,6 +1,6 @@
 // src/App.jsx or src/App.tsx
 import React, { useState } from 'react';
-import { Button, Input, Form, message, notification } from 'antd';
+import { Button, Input, Form, notification } from 'antd';
 import { add } from './utils/utils'; // Import your add function
 import './App.css'
 function App() {
@@ -10,13 +10,11 @@ function App() {
   const handleSubmit = async (values:any) => {
     try {
       const result = add(values.numbers.replace("\\n", "\n"));
-      // message.success(`Sum is ${result}`);
       api.success({
         message:<span className='status-of-sum'>{`Sum is ${result}`}</span>
 
       });
     } catch (err:any) {
-      // message.error(`Error: ${err.message}`);
       api.error({
         message:<span className='status-of-sum'>{`Error: ${err.message}`}</span>
       });
