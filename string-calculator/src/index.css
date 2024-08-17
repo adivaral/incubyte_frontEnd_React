@@ -8,6 +8,7 @@
 }
 
 body {
-  margin: 0px !important;
+  display: flex;
+  background: linear-gradient(135deg, #000428, #004e92);
 }
 

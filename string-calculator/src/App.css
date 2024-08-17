@@ -1,3 +1,13 @@
 .main-wrapper {
-  background-color: red;
+ position: absolute;
+ min-height: 90vh;
+ max-height: 100vh;
+ min-width: 95%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+label {
+  color: white !important;
 }
