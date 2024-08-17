@@ -27,6 +27,7 @@ function App() {
   return (
     <div className='main-wrapper' style={{ padding: '20px' }}>
       {contextHolder}
+      <h1>String Calculator</h1>
       <Form form={form} onFinish={handleSubmit}>
         <Form.Item
           name="numbers"
